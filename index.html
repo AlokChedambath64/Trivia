@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var button1 = document.getElementById("A");
+                var button2 = document.getElementById("B");
+                var button3 = document.getElementById("C");
+                var button4 = document.getElementById("D");
+                var outputText = document.getElementById("outputText");
+
+                document.querySelector('#A').addEventListener('click', function() {
+                    button1.style.backgroundColor = 'red';
+                    outputText.textContent = "Incorrect";
+                });
+
+                document.querySelector('#B').addEventListener('click', function() {
+                    button2.style.backgroundColor = 'red';
+                    outputText.textContent = "Incorrect";
+                });
+
+                document.querySelector('#C').addEventListener('click', function() {
+                    button3.style.backgroundColor = 'green';
+                    outputText.textContent = "Correct!";
+                });
+
+                document.querySelector('#D').addEventListener('click', function() {
+                    button4.style.backgroundColor = 'red';
+                    outputText.textContent = "Incorrect";
+                });
+                const compareButton = document.getElementById("compareButton");
+                const userInput = document.getElementById("userInput");
+                const resultElement = document.getElementById("result");
+                const targetString = "India";
+
+                compareButton.addEventListener("click", function() {
+                    const inputText = userInput.value.trim().toLowerCase();
+
+                    if (inputText === targetString.toLowerCase()) {
+                        resultElement.textContent = "Correct!";
+                    } else {
+                        resultElement.textContent = "Incorrect";
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header" color="grey">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    <center>Which of the following is not an example of a galaxy?</center>
+                    <center>
+                        <h4 id="outputText"></h4>
+                        <button id="A">Andromeda</button>
+                        <button id="B">Pin Wheel</button>
+                        <button id="C">Pinos</button>
+                        <button id="D">Whirlpool</button>
+                    </center>
+                </h3>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3 align = "center">Which is the only country to have landed to the "dark side" of the moon</h3>
+                <h4 id="result" align = "center"></h4>
+                <form align = "center" id ="inputForm">
+                    <label for="userInput">Enter a string: </label>
+                    <input type="text" id="userInput" name="userInput" required>
+                    <button type="button" id="compareButton">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
